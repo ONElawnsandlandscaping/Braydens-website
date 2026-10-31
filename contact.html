@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact BRAZEN Property & Home Services or request a service.">
+  <title>Contact | BRAZEN</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="wordmark" href="index.html" aria-label="BRAZEN home">BRA<span>Z</span>EN</a>
+    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a class="active" href="contact.html">Contact</a>
+      <a class="nav-cta" href="#request">Request Service</a>
+    </nav>
+  </header>
+
+  <main class="page-main contact-main">
+    <section class="page-intro">
+      <p class="eyebrow">GET IN TOUCH</p>
+      <h1>Contact BRAZEN</h1>
+      <span class="section-rule"></span>
+      <p>Have a question or need a hand? Get in touch.</p>
+    </section>
+
+    <section class="contact-details">
+      <a href="tel:4059530302">405-953-0302</a>
+      <a href="mailto:brazenservices031@gmail.com">brazenservices031@gmail.com</a>
+    </section>
+
+    <section class="request-section" id="request">
+      <div class="request-heading">
+        <p class="eyebrow">LET'S GET IT TAKEN CARE OF</p>
+        <h2>Request a Service</h2>
+        <p>Tell us a little about what you need.</p>
+      </div>
+
+      <form class="request-form" id="service-form">
+        <label for="customer-name">Your Name</label>
+        <input id="customer-name" name="name" type="text" placeholder="Enter your name" required>
+
+        <label for="customer-address">Service Address</label>
+        <input id="customer-address" name="address" type="text" placeholder="Enter the property address" required>
+
+        <label for="service-needed">Service Needed</label>
+        <select id="service-needed" name="service" required>
+          <option value="">Choose a service</option>
+          <optgroup label="Summer Services">
+            <option>Lawn Care</option>
+            <option>Pressure Washing</option>
+          </optgroup>
+          <optgroup label="All Year Round">
+            <option>Leaf Cleanup</option>
+            <option>Flower Bed Weeding</option>
+            <option>Car Washing</option>
+            <option>Dumpster Washing</option>
+            <option>House-Number Refresh</option>
+            <option>Pet Waste Cleanup</option>
+            <option>Window Washing</option>
+            <option>Other</option>
+          </optgroup>
+        </select>
+
+        <label for="job-details">Additional Details</label>
+        <textarea id="job-details" name="details" rows="4" placeholder="Tell us a little more about the job..."></textarea>
+
+        <button class="button button-gold form-submit" type="submit">Send Service Request</button>
+        <p class="form-note">This will open your device's messaging app with your request filled in. Review it and tap Send to submit.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="wordmark footer-mark" href="index.html">BRA<span>Z</span>EN</a>
+    <p>PROPERTY &amp; HOME SERVICES</p>
+    <p class="footer-slogan">You Name the Mess, We Handle the Rest.</p>
+    <p>© <span data-year></span> BRAZEN. All rights reserved.</p>
+  </footer>
+</body>
+</html>

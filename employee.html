@@ -1,195 +1,89 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Employee Entry | BRAZEN</title>
-
+  <title>BRAZEN Employee Portal</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       min-height: 100vh;
+      display: grid;
+      place-items: center;
       background: #101d34;
-      color: white;
       font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
-
-    .portal {
-      width: 100%;
-      max-width: 430px;
-      background: #ffffff;
       color: #17243b;
-      padding: 40px 30px;
+    }
+    .portal {
+      background: white;
+      width: 90%;
+      max-width: 400px;
+      padding: 40px 28px;
       border-radius: 14px;
       text-align: center;
-      box-shadow: 0 10px 35px #00000040;
     }
-
-    .logo {
-      color: #c99c3d;
-      font-size: 38px;
-      font-weight: bold;
-      letter-spacing: 4px;
-      margin-bottom: 5px;
-    }
-
-    .subtitle {
-      color: #687386;
-      margin-bottom: 30px;
-    }
-
-    h2 {
-      margin-bottom: 10px;
-    }
-
-    input {
+    h1 { color: #c99b3b; letter-spacing: 4px; }
+    input, button {
       width: 100%;
       padding: 14px;
-      margin: 15px 0;
-      border: 1px solid #d8dce4;
+      margin-top: 14px;
       border-radius: 7px;
       font-size: 16px;
     }
-
+    input { border: 1px solid #ddd; }
     button {
-      width: 100%;
-      padding: 14px;
-      border: none;
-      border-radius: 7px;
-      background: #c99c3d;
-      color: #101d34;
+      border: 0;
+      background: #c99b3b;
       font-weight: bold;
-      font-size: 16px;
       cursor: pointer;
     }
-
-    button:hover {
-      background: #b88a2f;
-    }
-
-    .error {
-      color: #b52d2d;
-      font-size: 14px;
-      margin-top: 12px;
-    }
-
-    .sheet-link {
-      display: block;
-      margin-top: 20px;
-      padding: 15px;
-      background: #101d34;
-      color: white;
-      border-radius: 7px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .sheet-link:hover {
-      background: #263b5d;
-    }
-
-    .back {
-      display: inline-block;
-      margin-top: 25px;
-      color: #c99c3d;
-      text-decoration: none;
-      font-size: 13px;
-    }
-
-    #accessGranted {
-      display: none;
-    }
+    a { color: #c99b3b; }
+    #error { color: red; }
   </style>
 </head>
-
 <body>
-
   <div class="portal">
+    <h1>BRAZEN</h1>
+    <p>PROPERTY & HOME SERVICES</p>
+    <h2>Employee Portal</h2>
+    <p>Enter your employee access code to continue.</p>
 
-    <div class="logo">BRAZEN</div>
-    <div class="subtitle">PROPERTY & HOME SERVICES</div>
+    <form id="login">
+      <input id="code" type="password"
+        placeholder="Employee Access Code" required>
+      <button type="submit">Enter Portal</button>
+    </form>
 
-    <div id="loginSection">
-      <h2>Employee Portal</h2>
-      <p>Enter your employee access code to continue.</p>
+    <p id="error"></p>
 
-      <form id="loginForm">
-        <input
-          type="password"
-          id="accessCode"
-          placeholder="Employee Access Code"
-          required
-        >
-
-        <button type="submit">Enter Portal</button>
-      </form>
-
-      <p id="errorMessage" class="error"></p>
-    </div>
-
-    <div id="accessGranted">
-      <h2>Access Granted</h2>
-      <p>Welcome to the BRAZEN Employee Portal.</p>
-
-      <a
-        id="sheetLink"
-        class="sheet-link"
-        href="#"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Open Employee Job Tracker
+    <div id="access" hidden>
+      <h3>Access Granted</h3>
+      <a id="documentLink" href="#" target="_blank">
+        Open Employee Document
       </a>
     </div>
 
-    <a href="index.html" class="back">
-      ← Back to Main Website
-    </a>
-
+    <p><a href="index.html">← Back to Main Website</a></p>
   </div>
 
   <script>
-    // CHANGE THESE TWO VALUES
+    const EMPLOYEE_CODE = "Legalduty13@";
+    const GOOGLE_FILE_URL = "https://docs.google.com/document/d/1yo3G00gLraSX9-MfJzAthItXEGZn1vC_jgc86OCqhHE/edit?tab=t.0";
 
-    const EMPLOYEE_CODE = "ENTER_YOUR_CODE_HERE";
+    document.getElementById("login").addEventListener("submit", function(e) {
+      e.preventDefault();
 
-    const GOOGLE_SHEET_URL = "PASTE_YOUR_GOOGLE_SHEET_LINK_HERE";
-
-
-    document.getElementById("loginForm").addEventListener("submit", function(event) {
-      event.preventDefault();
-
-      const enteredCode = document.getElementById("accessCode").value;
-
-      if (enteredCode === EMPLOYEE_CODE) {
-
-        document.getElementById("loginSection").style.display = "none";
-
-        document.getElementById("accessGranted").style.display = "block";
-
-        document.getElementById("sheetLink").href = GOOGLE_SHEET_URL;
-
+      if (document.getElementById("code").value === EMPLOYEE_CODE) {
+        document.getElementById("login").hidden = true;
+        document.getElementById("error").textContent = "";
+        document.getElementById("access").hidden = false;
+        document.getElementById("documentLink").href = GOOGLE_FILE_URL;
       } else {
-
-        document.getElementById("errorMessage").textContent =
+        document.getElementById("error").textContent =
           "Incorrect access code. Please try again.";
-
-        document.getElementById("accessCode").value = "";
       }
     });
   </script>
-
 </body>
 </html>
-const EMPLOYEE_CODE = "Brayden2013";
-
-const GOOGLE_SHEET_URL = "https://docs.google.com/document/d/1yo3G00gLraSX9-MfJzAthItXEGZn1vC_jgc86OCqhHE/edit?tab=t.0";

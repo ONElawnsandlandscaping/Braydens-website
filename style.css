@@ -7,7 +7,7 @@
   --ink: #142b45;
   --muted: #64748b;
   --paper: #f3f5f8;
-  --white: #fff;
+  --white: #ffffff;
   --line: #dce2e9;
   --shadow: 0 14px 38px rgba(9,29,50,.08);
 }
@@ -74,7 +74,7 @@ a {
 }
 
 .main-nav > a:not(.nav-cta):hover,
-.main-nav > a.active {
+.main-nav > a.active:not(.nav-cta) {
   color: var(--gold);
 }
 
@@ -148,57 +148,13 @@ a {
 }
 
 .hero-copy {
-  margin: 26px 0 34px;
+  margin: 26px 0 0;
   color: #dce5ef;
   font-size: clamp(17px,2vw,21px);
   line-height: 1.6;
 }
 
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-
-.button {
-  min-height: 54px;
-  padding: 0 27px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid transparent;
-  border-radius: 5px;
-  font: 700 14px 'DM Sans',Arial,sans-serif;
-  text-transform: uppercase;
-  letter-spacing: .035em;
-  cursor: pointer;
-  transition: transform .2s,background .2s;
-}
-
-.button:hover {
-  transform: translateY(-2px);
-}
-
-.button-gold {
-  background: var(--gold);
-  color: #10243a;
-}
-
-.button-gold:hover {
-  background: #e5b541;
-}
-
-.button-outline {
-  border-color: #fff;
-  color: white;
-  background: transparent;
-}
-
-.button-outline:hover {
-  background: rgba(255,255,255,.1);
-}
-
-/* ABSTRACT GOLD HERO DESIGN */
+/* HERO DESIGN */
 
 .hero-decoration {
   position: absolute;
@@ -355,11 +311,10 @@ a {
 }
 
 .service-list li {
-  padding: 14px 0;
+  padding: 14px 0 14px 22px;
   border-bottom: 1px solid #e8edf2;
   font-size: 17px;
   position: relative;
-  padding-left: 22px;
 }
 
 .service-list li:before {
@@ -407,6 +362,36 @@ a {
   font-size: 22px;
 }
 
+/* BUTTONS */
+
+.button {
+  min-height: 54px;
+  padding: 0 27px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  font: 700 14px 'DM Sans',Arial,sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .035em;
+  cursor: pointer;
+  transition: transform .2s,background .2s;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button-gold {
+  background: var(--gold);
+  color: #10243a;
+}
+
+.button-gold:hover {
+  background: #e5b541;
+}
+
 /* GALLERY */
 
 .gallery-grid {
@@ -435,7 +420,7 @@ a {
   margin: 25px 0 0;
 }
 
-/* CONTACT */
+/* REQUEST SERVICE */
 
 .contact-main {
   max-width: 1000px;
@@ -670,16 +655,6 @@ a {
 
   .hero-copy {
     font-size: 16px;
-  }
-
-  .hero-actions {
-    flex-direction: column;
-    align-items: stretch;
-    max-width: 290px;
-  }
-
-  .button {
-    width: 100%;
   }
 
   .eyebrow {

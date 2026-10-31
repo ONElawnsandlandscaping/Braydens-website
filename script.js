@@ -1,5 +1,6 @@
-// Mobile navigation and shared footer year.
 document.addEventListener('DOMContentLoaded', () => {
+
+  // Mobile navigation
   const toggle = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.main-nav');
 
@@ -17,10 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Automatically update copyright year
   document.querySelectorAll('[data-year]').forEach(el => {
     el.textContent = new Date().getFullYear();
   });
 
+  // Service request form
   const form = document.getElementById('service-form');
 
   if (form) {
@@ -41,4 +44,5 @@ document.addEventListener('DOMContentLoaded', () => {
         `sms:4059530302?body=${encodeURIComponent(message)}`;
     });
   }
+
 });

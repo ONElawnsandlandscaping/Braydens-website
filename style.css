@@ -690,3 +690,20 @@ a {
     font-size: 16px;
   }
 }
+.site-footer {
+  background: #101d34;
+  color: white;
+  text-align: center;
+  padding: 22px 15px;
+  margin-top: 40px;
+}
+
+.site-footer a {
+  color: #d9ad50;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}

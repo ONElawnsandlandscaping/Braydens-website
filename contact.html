@@ -4,138 +4,78 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Request Service | BRAZEN Property & Home Services</title>
+  <title>Request Service | BRAZEN</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    body { margin:0; background:#101d32; color:white; font-family:Arial,sans-serif; }
-    header { position:relative; text-align:center; padding:25px 20px; border-bottom:1px solid #34445b; }
-    .brand { color:#d6a83e; font-size:34px; font-weight:900; letter-spacing:5px; }
-    .brand-subtitle { font-size:12px; letter-spacing:3px; margin-top:5px; }
-    .menu-button { position:absolute; right:22px; top:22px; background:none; border:0; color:white; font-size:30px; cursor:pointer; }
-    .menu { display:none; position:absolute; z-index:10; right:15px; top:75px; width:210px; background:#172943; border:1px solid #d6a83e; border-radius:8px; overflow:hidden; text-align:left; }
-    .menu.open { display:block; }
-    .menu a { display:block; color:white; text-decoration:none; padding:15px 18px; border-bottom:1px solid #34445b; }
-    .menu a:hover { background:#d6a83e; color:#101d32; }
-    main { max-width:750px; margin:auto; padding:45px 20px; }
-    h1 { text-align:center; color:#d6a83e; }
-    .intro { text-align:center; color:#d5dce6; line-height:1.7; margin-bottom:30px; }
-    form { background:#172943; padding:25px; border:1px solid #34445b; border-radius:10px; }
-    label { display:block; margin:17px 0 7px; font-weight:bold; color:#d6a83e; }
-    input, select, textarea { width:100%; padding:13px; border:1px solid #52647c; border-radius:5px; background:#fff; color:#17243b; font:inherit; }
-    textarea { min-height:120px; resize:vertical; }
-    button[type="submit"] { width:100%; margin-top:22px; padding:15px; background:#d6a83e; color:#101d32; border:0; border-radius:5px; font-weight:bold; font-size:16px; cursor:pointer; }
-    button[type="submit"]:hover { background:white; }
-    .contact-info { text-align:center; margin-top:35px; line-height:1.8; }
-    .contact-info a { color:#d6a83e; }
-    footer { text-align:center; padding:25px; color:#c5ceda; font-size:13px; }
-    footer strong { color:#d6a83e; }
-  </style>
 </head>
 <body>
-<header>
-  <div class="brand">BRAZEN</div>
-  <div class="brand-subtitle">PROPERTY & HOME SERVICES</div>
-  <button class="menu-button" id="menuButton" aria-label="Open menu" aria-expanded="false">☰</button>
-  <nav class="menu" id="navigationMenu">
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="faq.html">FAQ</a>
-    <a href="contact.html">Request Service</a>
-  </nav>
-</header>
 
-<main>
-  <h1>Request Service</h1>
-  <p class="intro">Tell us a little about the work you need done. We'll follow up with you to discuss your request and provide an estimate.</p>
+  <header class="site-header">
+    <a class="logo" href="index.html">BRAZEN</a>
+    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Request Service</a>
+      <a href="employee.html">Employee Portal</a>
+    </nav>
+  </header>
 
-  <form id="serviceRequestForm">
-    <label for="customerName">Your Name</label>
-    <input type="text" id="customerName" placeholder="Enter your name" required>
+  <main class="page-content">
+    <section class="page-heading">
+      <p class="eyebrow">LET'S GET STARTED</p>
+      <h1>REQUEST SERVICE</h1>
+      <p>Tell us about your project and we'll get back to you.</p>
+    </section>
 
-    <label for="customerAddress">Service Address or Area</label>
-    <input type="text" id="customerAddress" placeholder="Where is the service needed?" required>
+    <section class="contact-section">
+      <form class="request-form" id="requestForm">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required>
 
-    <label for="customerPhone">Your Phone Number</label>
-    <input type="tel" id="customerPhone" placeholder="Your phone number" required>
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" required>
 
-    <label for="service">What Service Do You Need?</label>
-    <select id="service" required>
-      <option value="">Select a service</option>
-      <option>Lawn Care</option>
-      <option>Pressure Washing</option>
-      <option>Window Cleaning</option>
-      <option>Leaf Cleanup</option>
-      <option>Flower Bed Weeding</option>
-      <option>Car Washing</option>
-      <option>Dumpster Washing</option>
-      <option>House-Number Refresh</option>
-      <option>Pet Waste Cleanup</option>
-      <option>Multiple Services</option>
-      <option>Other</option>
-    </select>
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email">
 
-    <label for="details">Tell Us More About the Job</label>
-    <textarea id="details" placeholder="Describe what you need, the size of the area, or any other details."></textarea>
+        <label for="service">Service Needed</label>
+        <select id="service" name="service" required>
+          <option value="">Select a service</option>
+          <option>Property Cleanup</option>
+          <option>Yard Maintenance</option>
+          <option>Pressure Washing</option>
+          <option>Window Cleaning</option>
+          <option>Hauling & Removal</option>
+          <option>General Property Services</option>
+          <option>Other</option>
+        </select>
 
-    <button type="submit">SEND SERVICE REQUEST</button>
-  </form>
+        <label for="address">Service Address</label>
+        <input type="text" id="address" name="address" required>
 
-  <div class="contact-info">
-    <h2 style="color:#d6a83e;">Prefer to Contact Us Directly?</h2>
-    <p>Call or text: <a href="tel:4059530302">405-953-0302</a></p>
-    <p>Email: <a href="mailto:brazenservices031@gmail.com">brazenservices031@gmail.com</a></p>
-  </div>
-</main>
+        <label for="details">Project Details</label>
+        <textarea id="details" name="details" rows="6" placeholder="Tell us what you need done..." required></textarea>
 
-<footer>
-  <strong>BRAZEN Property & Home Services</strong>
-  <p>You Name the Mess, We Handle the Rest.</p>
-  <p>Moore, Oklahoma & Surrounding Areas</p>
-  <p>405-953-0302</p>
-  <p>&copy; <span class="year"></span> BRAZEN. All Rights Reserved.</p>
-</footer>
+        <button class="gold-button" type="submit">SEND REQUEST</button>
+      </form>
 
-<script>
-  const menuButton = document.getElementById("menuButton");
-  const navigationMenu = document.getElementById("navigationMenu");
+      <div class="contact-details">
+        <h2>CONTACT BRAZEN</h2>
+        <p><strong>Phone:</strong> 405-953-0302</p>
+        <p><strong>Email:</strong> brazenservices031@gmail.com</p>
+        <p><strong>Service Area:</strong> Moore, Oklahoma and surrounding communities</p>
+      </div>
+    </section>
+  </main>
 
-  menuButton.addEventListener("click", () => {
-    const open = navigationMenu.classList.toggle("open");
-    menuButton.setAttribute("aria-expanded", open);
-    menuButton.textContent = open ? "×" : "☰";
-  });
+  <footer>
+    <p>BRAZEN Property & Home Services</p>
+    <p>You Name the Mess, We Handle the Rest.</p>
+    <p>405-953-0302</p>
+  </footer>
 
-  document.addEventListener("click", event => {
-    if (!menuButton.contains(event.target) && !navigationMenu.contains(event.target)) {
-      navigationMenu.classList.remove("open");
-      menuButton.setAttribute("aria-expanded", "false");
-      menuButton.textContent = "☰";
-    }
-  });
-
-  document.querySelector(".year").textContent = new Date().getFullYear();
-
-  document.getElementById("serviceRequestForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-
-    const name = document.getElementById("customerName").value.trim();
-    const address = document.getElementById("customerAddress").value.trim();
-    const phone = document.getElementById("customerPhone").value.trim();
-    const service = document.getElementById("service").value;
-    const details = document.getElementById("details").value.trim();
-
-    const message =
-      "BRAZEN SERVICE REQUEST\n\n" +
-      "Name: " + name + "\n" +
-      "Service Area/Address: " + address + "\n" +
-      "Phone: " + phone + "\n" +
-      "Service: " + service + "\n" +
-      "Details: " + (details || "None provided");
-
-    window.location.href =
-      "sms:4059530302?body=" + encodeURIComponent(message);
-  });
-</script>
+  <script src="script.js"></script>
 </body>
 </html>

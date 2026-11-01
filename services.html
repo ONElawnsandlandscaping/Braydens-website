@@ -1,92 +1,114 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services | BRAZEN</title>
+  <title>Services | BRAZEN Property & Home Services</title>
   <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+  <style>
+    body { margin:0; background:#101d32; color:white; font-family:Arial,sans-serif; }
+    header { position:relative; text-align:center; padding:25px 20px; border-bottom:1px solid #34445b; }
+    .brand { color:#d6a83e; font-size:34px; font-weight:900; letter-spacing:5px; }
+    .brand-subtitle { font-size:12px; letter-spacing:3px; margin-top:5px; }
+    .menu-button { position:absolute; right:22px; top:22px; background:none; border:0; color:white; font-size:30px; cursor:pointer; }
+    .menu { display:none; position:absolute; z-index:10; right:15px; top:75px; width:210px; background:#172943; border:1px solid #d6a83e; border-radius:8px; overflow:hidden; text-align:left; }
+    .menu.open { display:block; }
+    .menu a { display:block; color:white; text-decoration:none; padding:15px 18px; border-bottom:1px solid #34445b; }
+    .menu a:hover { background:#d6a83e; color:#101d32; }
+    main { max-width:1000px; margin:auto; padding:45px 20px; }
+    h1,h2 { color:#d6a83e; text-align:center; }
+    .intro { text-align:center; line-height:1.7; color:#d5dce6; }
+    .service-section { margin-top:35px; }
+    .service-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin-top:20px; }
+    .service-card { background:#172943; border:1px solid #34445b; border-left:4px solid #d6a83e; border-radius:8px; padding:22px; }
+    .service-card h3 { margin-top:0; color:#d6a83e; }
+    .service-card p { color:#d5dce6; line-height:1.6; }
+    .cta { text-align:center; margin:45px 0 15px; }
+    .cta a { display:inline-block; background:#d6a83e; color:#101d32; padding:14px 25px; border-radius:5px; text-decoration:none; font-weight:bold; }
+    footer { text-align:center; padding:25px; color:#c5ceda; font-size:13px; }
+    footer strong { color:#d6a83e; }
+  </style>
 </head>
 <body>
-
-<header class="site-header">
-  <a class="wordmark" href="index.html">BRA<span>Z</span>EN</a>
-
-  <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
-
-  <nav class="main-nav">
+<header>
+  <div class="brand">BRAZEN</div>
+  <div class="brand-subtitle">PROPERTY & HOME SERVICES</div>
+  <button class="menu-button" id="menuButton" aria-label="Open menu" aria-expanded="false">☰</button>
+  <nav class="menu" id="navigationMenu">
     <a href="index.html">Home</a>
-    <a class="active" href="services.html">Services</a>
+    <a href="services.html">Services</a>
     <a href="gallery.html">Gallery</a>
-    <a class="nav-cta" href="contact.html">Request Service</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Request Service</a>
   </nav>
 </header>
 
-<main class="page-main">
+<main>
+  <h1>Our Services</h1>
+  <p class="intro">BRAZEN Property & Home Services helps keep your property clean, maintained, and looking its best. We offer seasonal and year-round services in Moore, Oklahoma, and surrounding communities.</p>
 
-  <section class="page-intro">
-    <p class="eyebrow">WHAT WE DO</p>
-    <h1>Our Services</h1>
-    <span class="section-rule"></span>
-    <p>Property care made simple.</p>
-  </section>
-
-  <section class="service-grid">
-
-    <article class="service-panel">
-      <p class="panel-kicker">SEASONAL</p>
-      <h2>Summer Services</h2>
-
-      <ul class="service-list">
-        <li>
-          <strong>Lawn Care</strong>
-          <small>Mowing, edging, weedeating, and blowing</small>
-        </li>
-        <li>Pressure Washing</li>
-      </ul>
-
-      <p class="service-note">
-        Lawn care pricing is based on property size and service frequency.
-      </p>
-    </article>
-
-    <article class="service-panel">
-      <p class="panel-kicker">AVAILABLE YEAR ROUND</p>
-      <h2>All Year Round</h2>
-
-      <ul class="service-list">
-        <li>Leaf Cleanup</li>
-        <li>Flower Bed Weeding</li>
-        <li>Car Washing</li>
-        <li>Dumpster Washing</li>
-        <li>House-Number Refresh</li>
-        <li>Pet Waste Cleanup</li>
-        <li>Window Washing</li>
-      </ul>
-    </article>
-
-  </section>
-
-  <section class="page-callout">
-    <div>
-      <p class="eyebrow">READY TO GET STARTED?</p>
-      <h2>You Name the Mess, We Handle the Rest.</h2>
+  <section class="service-section">
+    <h2>Summer Services</h2>
+    <div class="service-grid">
+      <article class="service-card">
+        <h3>Lawn Care</h3>
+        <p>Mowing, edging, weedeating, and blowing to keep your yard looking neat and maintained.</p>
+      </article>
+      <article class="service-card">
+        <h3>Pressure Washing</h3>
+        <p>Cleaning exterior surfaces to remove built-up dirt and improve your property's appearance.</p>
+      </article>
     </div>
-    <a class="button button-gold" href="contact.html">Request Service</a>
   </section>
 
+  <section class="service-section">
+    <h2>Year-Round Services</h2>
+    <div class="service-grid">
+      <article class="service-card"><h3>Window Cleaning</h3><p>Cleaning windows to help improve the look of your home or business.</p></article>
+      <article class="service-card"><h3>Leaf Cleanup</h3><p>Removing fallen leaves and clearing outdoor areas.</p></article>
+      <article class="service-card"><h3>Flower Bed Weeding</h3><p>Removing weeds and tidying up flower beds.</p></article>
+      <article class="service-card"><h3>Car Washing</h3><p>Convenient vehicle cleaning to keep your car looking its best.</p></article>
+      <article class="service-card"><h3>Dumpster Washing</h3><p>Cleaning dumpsters and removing grime and buildup.</p></article>
+      <article class="service-card"><h3>House-Number Refresh</h3><p>Refreshing house numbers to help make your address easier to see.</p></article>
+      <article class="service-card"><h3>Pet Waste Cleanup</h3><p>Cleaning up pet waste to keep your outdoor spaces cleaner.</p></article>
+    </div>
+  </section>
+
+  <div class="cta">
+    <h2>Need a Hand With Your Property?</h2>
+    <p>Get in touch with BRAZEN for an estimate.</p>
+    <a href="contact.html">REQUEST SERVICE</a>
+  </div>
 </main>
 
-<footer class="site-footer">
-  <a class="wordmark footer-mark" href="index.html">BRA<span>Z</span>EN</a>
-  <p>PROPERTY &amp; HOME SERVICES</p>
-  <p class="footer-slogan">You Name the Mess, We Handle the Rest.</p>
-  <p>© <span data-year></span> BRAZEN. All rights reserved.</p>
+<footer>
+  <strong>BRAZEN Property & Home Services</strong>
+  <p>You Name the Mess, We Handle the Rest.</p>
+  <p>Moore, Oklahoma & Surrounding Areas</p>
+  <p>405-953-0302</p>
+  <p>&copy; <span class="year"></span> BRAZEN. All Rights Reserved.</p>
 </footer>
-<footer class="site-footer">
-  <p>© BRAZEN Property & Home Services</p>
-  <a href="employee.html">Employee Entry</a>
-</footer>
+
+<script>
+  const menuButton = document.getElementById("menuButton");
+  const navigationMenu = document.getElementById("navigationMenu");
+
+  menuButton.addEventListener("click", () => {
+    const open = navigationMenu.classList.toggle("open");
+    menuButton.setAttribute("aria-expanded", open);
+    menuButton.textContent = open ? "×" : "☰";
+  });
+
+  document.addEventListener("click", event => {
+    if (!menuButton.contains(event.target) && !navigationMenu.contains(event.target)) {
+      navigationMenu.classList.remove("open");
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.textContent = "☰";
+    }
+  });
+
+  document.querySelector(".year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
-

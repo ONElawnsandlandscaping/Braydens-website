@@ -1,59 +1,264 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="BRAZEN Property & Home Services. You Name the Mess, We Handle the Rest.">
+  <meta name="description" content="BRAZEN Property & Home Services provides lawn care, pressure washing, window cleaning, and property maintenance in Moore, Oklahoma.">
   <title>BRAZEN | Property & Home Services</title>
   <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #101d32;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      position: relative;
+      padding: 25px 20px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+
+    .brand {
+      color: #d6a83e;
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: 5px;
+      margin: 0;
+    }
+
+    .brand-subtitle {
+      color: white;
+      font-size: 12px;
+      letter-spacing: 3px;
+      margin-top: 5px;
+    }
+
+    .menu-button {
+      position: absolute;
+      right: 22px;
+      top: 25px;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+    .menu {
+      display: none;
+      position: absolute;
+      z-index: 10;
+      right: 15px;
+      top: 75px;
+      width: 210px;
+      background: #172943;
+      border: 1px solid #d6a83e;
+      border-radius: 8px;
+      overflow: hidden;
+      text-align: left;
+      box-shadow: 0 8px 20px rgba(0,0,0,.3);
+    }
+
+    .menu.open {
+      display: block;
+    }
+
+    .menu a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 15px 18px;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+
+    .menu a:hover {
+      background: #d6a83e;
+      color: #101d32;
+    }
+
+    .hero {
+      min-height: 75vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .hero h1 {
+      color: #d6a83e;
+      font-size: clamp(38px, 7vw, 68px);
+      margin: 0 0 15px;
+      letter-spacing: 3px;
+    }
+
+    .hero h2 {
+      font-size: clamp(19px, 3vw, 27px);
+      font-weight: 400;
+      margin: 0 0 20px;
+    }
+
+    .hero p {
+      color: #d5dce6;
+      max-width: 600px;
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    .hero-button {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 15px 28px;
+      background: #d6a83e;
+      color: #101d32;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .hero-button:hover {
+      background: white;
+    }
+
+    .services-preview {
+      text-align: center;
+      padding: 45px 20px;
+      background: #172943;
+    }
+
+    .services-preview h2 {
+      color: #d6a83e;
+      font-size: 28px;
+    }
+
+    .service-list {
+      max-width: 750px;
+      margin: 25px auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .service-list span {
+      border: 1px solid #d6a83e;
+      border-radius: 5px;
+      padding: 12px 16px;
+    }
+
+    footer {
+      padding: 25px 15px;
+      text-align: center;
+      color: #c5ceda;
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: #d6a83e;
+    }
+  </style>
 </head>
-<body class="home-page">
 
-<header class="site-header">
-  <a class="wordmark" href="index.html">BRA<span>Z</span>EN</a>
+<body>
 
-  <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+  <header>
+    <div class="brand">BRAZEN</div>
+    <div class="brand-subtitle">PROPERTY & HOME SERVICES</div>
 
-  <nav class="main-nav">
-    <a class="active" href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="gallery.html">Gallery</a>
-    <a class="nav-cta" href="contact.html">Request Service</a>
-  </nav>
-</header>
+    <button class="menu-button" id="menuButton"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="navigationMenu">
+      ☰
+    </button>
 
-<main class="home-hero">
+    <nav class="menu" id="navigationMenu">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Request Service</a>
+    </nav>
+  </header>
 
-  <div class="hero-decoration" aria-hidden="true">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
+  <main>
+    <section class="hero">
+      <h1>BRAZEN</h1>
+      <h2>You Name the Mess, We Handle the Rest.</h2>
 
-  <div class="hero-content">
-    <p class="eyebrow">PROPERTY &amp; HOME SERVICES</p>
+      <p>
+        Professional property maintenance and cleaning services
+        serving Moore, Oklahoma, and surrounding communities.
+        From improving curb appeal to keeping your property clean,
+        we're ready to help.
+      </p>
 
-    <h1>
-      You Name the Mess,<br>
-      <span>We Handle the Rest.</span>
-    </h1>
+      <a class="hero-button" href="contact.html">
+        REQUEST SERVICE
+      </a>
+    </section>
 
-    <p class="hero-copy">
-      Professional property and home services.
-      Reliable help when you need it.
-    </p>
-  </div>
+    <section class="services-preview">
+      <h2>What We Do</h2>
+      <p>Cleaner Spaces • Better Curb Appeal • Year Round</p>
 
-  <div class="hero-bottom">
-    <span class="gold-line"></span>
-    <span>BRAZEN PROPERTY &amp; HOME SERVICES</span>
-  </div>
+      <div class="service-list">
+        <span>Lawn Care</span>
+        <span>Pressure Washing</span>
+        <span>Window Cleaning</span>
+        <span>Leaf Cleanup</span>
+        <span>Flower Bed Weeding</span>
+        <span>Car Washing</span>
+        <span>Dumpster Washing</span>
+        <span>Pet Waste Cleanup</span>
+      </div>
 
-</main>
-<footer class="site-footer">
-  <p>© BRAZEN Property & Home Services</p>
-  <a href="employee.html">Employee Entry</a>
-</footer>
+      <a class="hero-button" href="services.html">
+        VIEW ALL SERVICES
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <strong>BRAZEN Property & Home Services</strong>
+    <p>You Name the Mess, We Handle the Rest.</p>
+    <p>Moore, Oklahoma & Surrounding Areas</p>
+    <p>405-953-0302</p>
+    <p>&copy; <span id="year"></span> BRAZEN. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const menuButton = document.getElementById("menuButton");
+    const navigationMenu = document.getElementById("navigationMenu");
+
+    menuButton.addEventListener("click", function () {
+      const isOpen = navigationMenu.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", isOpen);
+      menuButton.textContent = isOpen ? "×" : "☰";
+    });
+
+    document.addEventListener("click", function (event) {
+      if (!menuButton.contains(event.target) &&
+          !navigationMenu.contains(event.target)) {
+        navigationMenu.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.textContent = "☰";
+      }
+    });
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
 </body>
 </html>

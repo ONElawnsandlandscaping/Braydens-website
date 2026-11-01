@@ -1,47 +1,59 @@
-document.addEventListener('DOMContentLoaded', () => {
 
-  // Mobile navigation
-  const toggle = document.querySelector('.menu-toggle');
-  const nav = document.querySelector('.main-nav');
+// BRAZEN PROPERTY & HOME SERVICES
 
-  if (toggle && nav) {
-    toggle.addEventListener('click', () => {
-      const isOpen = nav.classList.toggle('open');
+document.addEventListener("DOMContentLoaded", function () {
 
-      toggle.setAttribute('aria-expanded', String(isOpen));
-      toggle.setAttribute(
-        'aria-label',
-        isOpen ? 'Close navigation' : 'Open navigation'
-      );
+  // MOBILE HAMBURGER MENU
+  const menuToggle = document.querySelector(".menu-toggle");
+  const siteNav = document.querySelector(".site-nav");
 
-      toggle.textContent = isOpen ? '×' : '☰';
+  if (menuToggle && siteNav) {
+    menuToggle.addEventListener("click", function () {
+      const isOpen = siteNav.classList.toggle("active");
+
+      menuToggle.setAttribute("aria-expanded", isOpen);
+      menuToggle.innerHTML = isOpen ? "&times;" : "&#9776;";
+    });
+
+    // Close menu after selecting a link
+    siteNav.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        siteNav.classList.remove("active");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.innerHTML = "&#9776;";
+      });
     });
   }
 
-  // Automatically update copyright year
-  document.querySelectorAll('[data-year]').forEach(el => {
-    el.textContent = new Date().getFullYear();
-  });
+  // SERVICE REQUEST FORM
+  const requestForm = document.getElementById("requestForm");
 
-  // Service request form
-  const form = document.getElementById('service-form');
-
-  if (form) {
-    form.addEventListener('submit', event => {
+  if (requestForm) {
+    requestForm.addEventListener("submit", function (event) {
       event.preventDefault();
 
-      const data = new FormData(form);
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const service = document.getElementById("service").value;
+      const address = document.getElementById("address").value.trim();
+      const details = document.getElementById("details").value.trim();
 
-      const message = [
-        'BRAZEN SERVICE REQUEST',
-        `Name: ${data.get('name')}`,
-        `Address: ${data.get('address')}`,
-        `Service: ${data.get('service')}`,
-        `Details: ${data.get('details') || 'None provided'}`
-      ].join('\n');
+      const subject = encodeURIComponent("BRAZEN Service Request - " + name);
+
+      const body = encodeURIComponent(
+        "NEW SERVICE REQUEST\n\n" +
+        "Name: " + name + "\n" +
+        "Phone: " + phone + "\n" +
+        "Email: " + (email || "Not provided") + "\n" +
+        "Service: " + service + "\n" +
+        "Address: " + address + "\n\n" +
+        "Project Details:\n" + details
+      );
 
       window.location.href =
-        `sms:4059530302?body=${encodeURIComponent(message)}`;
+        "mailto:brazenservices031@gmail.com?subject=" +
+        subject + "&body=" + body;
     });
   }
 

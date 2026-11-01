@@ -4,167 +4,321 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BRAZEN Property & Home Services</title>
   <meta name="description" content="BRAZEN Property & Home Services provides lawn care, pressure washing, window cleaning, and property maintenance in Moore, Oklahoma.">
-  <title>BRAZEN | Property & Home Services</title>
-  <link rel="stylesheet" href="style.css">
 
   <style>
+    :root {
+      --navy: #102b49;
+      --gold: #d9a52e;
+      --white: #ffffff;
+      --light: #f4f6f8;
+      --dark: #172333;
+    }
+
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      margin: 0;
-      background: #101d32;
-      color: white;
-      font-family: Arial, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--dark);
+      background: var(--white);
+      line-height: 1.6;
     }
 
     header {
-      position: relative;
-      padding: 25px 20px;
-      text-align: center;
-      border-bottom: 1px solid rgba(255,255,255,.12);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--navy);
+      color: var(--white);
+      padding: 16px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 3px 12px rgba(0,0,0,.18);
     }
 
-    .brand {
-      color: #d6a83e;
-      font-size: 34px;
+    .logo {
+      color: var(--white);
+      font-size: 27px;
       font-weight: 900;
-      letter-spacing: 5px;
-      margin: 0;
+      letter-spacing: 3px;
+      text-decoration: none;
     }
 
-    .brand-subtitle {
-      color: white;
-      font-size: 12px;
-      letter-spacing: 3px;
-      margin-top: 5px;
+    .logo span {
+      color: var(--gold);
     }
 
     .menu-button {
-      position: absolute;
-      right: 22px;
-      top: 25px;
-      background: none;
       border: none;
-      color: white;
-      font-size: 30px;
+      background: none;
+      color: var(--white);
+      font-size: 32px;
       cursor: pointer;
+      padding: 0 5px;
     }
 
-    .menu {
+    .nav-links {
       display: none;
       position: absolute;
-      z-index: 10;
-      right: 15px;
-      top: 75px;
-      width: 210px;
-      background: #172943;
-      border: 1px solid #d6a83e;
-      border-radius: 8px;
-      overflow: hidden;
-      text-align: left;
-      box-shadow: 0 8px 20px rgba(0,0,0,.3);
+      top: 100%;
+      right: 0;
+      width: 240px;
+      background: var(--navy);
+      padding: 12px 0;
+      box-shadow: 0 8px 15px rgba(0,0,0,.2);
     }
 
-    .menu.open {
-      display: block;
+    .nav-links.active {
+      display: flex;
+      flex-direction: column;
     }
 
-    .menu a {
-      display: block;
-      color: white;
+    .nav-links a {
+      color: var(--white);
       text-decoration: none;
-      padding: 15px 18px;
-      border-bottom: 1px solid rgba(255,255,255,.1);
+      padding: 12px 24px;
+      font-weight: bold;
+      transition: .2s;
     }
 
-    .menu a:hover {
-      background: #d6a83e;
-      color: #101d32;
+    .nav-links a:hover {
+      color: var(--gold);
+      background: rgba(255,255,255,.06);
     }
 
     .hero {
-      min-height: 75vh;
+      min-height: 540px;
+      position: relative;
+      overflow: hidden;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 50px 20px;
+      padding: 70px 20px;
+      color: var(--white);
+      background:
+        linear-gradient(135deg, #102b49 0%, #173c61 55%, #102b49 100%);
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border: 2px solid rgba(217,165,46,.28);
+      transform: rotate(35deg);
+      pointer-events: none;
+    }
+
+    .hero::before {
+      width: 420px;
+      height: 420px;
+      top: -180px;
+      left: -100px;
+    }
+
+    .hero::after {
+      width: 500px;
+      height: 500px;
+      bottom: -300px;
+      right: -100px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 850px;
+    }
+
+    .hero-brand {
+      font-size: clamp(55px, 10vw, 100px);
+      font-weight: 900;
+      letter-spacing: 12px;
+      line-height: 1.1;
+    }
+
+    .hero-brand span {
+      color: var(--gold);
+    }
+
+    .hero-divider {
+      width: 100px;
+      height: 5px;
+      background: var(--gold);
+      margin: 25px auto;
     }
 
     .hero h1 {
-      color: #d6a83e;
-      font-size: clamp(38px, 7vw, 68px);
-      margin: 0 0 15px;
-      letter-spacing: 3px;
-    }
-
-    .hero h2 {
-      font-size: clamp(19px, 3vw, 27px);
-      font-weight: 400;
-      margin: 0 0 20px;
+      font-size: clamp(22px, 4vw, 34px);
+      font-weight: 600;
+      margin-bottom: 12px;
     }
 
     .hero p {
-      color: #d5dce6;
-      max-width: 600px;
-      line-height: 1.7;
-      font-size: 16px;
+      color: #e5eaf0;
+      font-size: 18px;
     }
 
-    .hero-button {
+    section {
+      padding: 75px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      color: var(--navy);
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .section-line {
+      width: 65px;
+      height: 4px;
+      background: var(--gold);
+      margin: 0 auto 35px;
+    }
+
+    .intro {
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+      font-size: 18px;
+      color: #555;
+    }
+
+    .services-section {
+      background: var(--light);
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 22px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .service-card {
+      background: var(--white);
+      padding: 30px 22px;
+      text-align: center;
+      border-bottom: 4px solid var(--gold);
+      box-shadow: 0 4px 15px rgba(0,0,0,.06);
+    }
+
+    .service-card h3 {
+      color: var(--navy);
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      color: #626262;
+    }
+
+    .gallery-section {
+      text-align: center;
+    }
+
+    .gallery-section p {
+      color: #666;
+    }
+
+    .gallery-link {
+      display: inline-block;
+      margin-top: 22px;
+      padding: 12px 28px;
+      background: var(--navy);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: bold;
+      border-bottom: 3px solid var(--gold);
+    }
+
+    .gallery-link:hover {
+      background: #1b4268;
+    }
+
+    .request-section {
+      background: var(--navy);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .request-section .section-title {
+      color: var(--white);
+    }
+
+    .request-section p {
+      max-width: 650px;
+      margin: auto;
+      color: #e3e9ef;
+    }
+
+    .request-section a {
       display: inline-block;
       margin-top: 25px;
-      padding: 15px 28px;
-      background: #d6a83e;
-      color: #101d32;
+      padding: 13px 30px;
+      background: var(--gold);
+      color: var(--navy);
       font-weight: bold;
       text-decoration: none;
-      border-radius: 5px;
     }
 
-    .hero-button:hover {
-      background: white;
-    }
-
-    .services-preview {
+    .contact-section {
       text-align: center;
-      padding: 45px 20px;
-      background: #172943;
     }
 
-    .services-preview h2 {
-      color: #d6a83e;
-      font-size: 28px;
+    .contact-section p {
+      margin: 8px 0;
     }
 
-    .service-list {
-      max-width: 750px;
-      margin: 25px auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-    }
-
-    .service-list span {
-      border: 1px solid #d6a83e;
-      border-radius: 5px;
-      padding: 12px 16px;
+    .contact-section a {
+      color: var(--navy);
+      font-weight: bold;
+      text-decoration: none;
     }
 
     footer {
-      padding: 25px 15px;
+      background: #0a1e33;
+      color: #dce3eb;
       text-align: center;
-      color: #c5ceda;
-      font-size: 13px;
+      padding: 25px 15px;
+      font-size: 14px;
     }
 
     footer strong {
-      color: #d6a83e;
+      color: var(--gold);
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 14px 5%;
+      }
+
+      .logo {
+        font-size: 23px;
+      }
+
+      .hero {
+        min-height: 470px;
+      }
+
+      .hero-brand {
+        letter-spacing: 7px;
+      }
+
+      section {
+        padding: 60px 6%;
+      }
     }
   </style>
 </head>
@@ -172,17 +326,13 @@
 <body>
 
   <header>
-    <div class="brand">BRAZEN</div>
-    <div class="brand-subtitle">PROPERTY & HOME SERVICES</div>
+    <a href="index.html" class="logo">BRA<span>ZEN</span></a>
 
     <button class="menu-button" id="menuButton"
       aria-label="Open navigation menu"
-      aria-expanded="false"
-      aria-controls="navigationMenu">
-      ☰
-    </button>
+      aria-expanded="false">☰</button>
 
-    <nav class="menu" id="navigationMenu">
+    <nav class="nav-links" id="navLinks">
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
       <a href="gallery.html">Gallery</a>
@@ -193,67 +343,98 @@
 
   <main>
     <section class="hero">
-      <h1>BRAZEN</h1>
-      <h2>You Name the Mess, We Handle the Rest.</h2>
-
-      <p>
-        Professional property maintenance and cleaning services
-        serving Moore, Oklahoma, and surrounding communities.
-        From improving curb appeal to keeping your property clean,
-        we're ready to help.
-      </p>
-
-      <a class="hero-button" href="contact.html">
-        REQUEST SERVICE
-      </a>
+      <div class="hero-content">
+        <div class="hero-brand">BRA<span>ZEN</span></div>
+        <div class="hero-divider"></div>
+        <h1>You Name the Mess, We Handle the Rest.</h1>
+        <p>Property & Home Services | Moore, Oklahoma</p>
+      </div>
     </section>
 
-    <section class="services-preview">
-      <h2>What We Do</h2>
-      <p>Cleaner Spaces • Better Curb Appeal • Year Round</p>
+    <section>
+      <h2 class="section-title">Welcome to BRAZEN</h2>
+      <div class="section-line"></div>
+      <p class="intro">
+        BRAZEN Property & Home Services helps homeowners keep their
+        properties clean, maintained, and looking their best. From
+        routine lawn care to one-time cleaning projects, we take pride
+        in dependable service and quality work.
+      </p>
+    </section>
 
-      <div class="service-list">
-        <span>Lawn Care</span>
-        <span>Pressure Washing</span>
-        <span>Window Cleaning</span>
-        <span>Leaf Cleanup</span>
-        <span>Flower Bed Weeding</span>
-        <span>Car Washing</span>
-        <span>Dumpster Washing</span>
-        <span>Pet Waste Cleanup</span>
+    <section class="services-section">
+      <h2 class="section-title">What We Do</h2>
+      <div class="section-line"></div>
+
+      <div class="service-grid">
+        <div class="service-card">
+          <h3>Lawn Care</h3>
+          <p>Mowing, edging, weedeating, blowing, and yard maintenance.</p>
+        </div>
+
+        <div class="service-card">
+          <h3>Pressure Washing</h3>
+          <p>Cleaning outdoor surfaces and improving curb appeal.</p>
+        </div>
+
+        <div class="service-card">
+          <h3>Window Cleaning</h3>
+          <p>Cleaning windows to help your home look its best.</p>
+        </div>
+
+        <div class="service-card">
+          <h3>Property Cleanup</h3>
+          <p>Leaf cleanup, flower bed weeding, and general outdoor cleanup.</p>
+        </div>
       </div>
+    </section>
 
-      <a class="hero-button" href="services.html">
-        VIEW ALL SERVICES
-      </a>
+    <section class="gallery-section">
+      <h2 class="section-title">Our Work</h2>
+      <div class="section-line"></div>
+      <p>See examples of our work and the results we deliver.</p>
+      <a href="gallery.html" class="gallery-link">View Gallery</a>
+    </section>
+
+    <section class="request-section">
+      <h2 class="section-title">Need Something Done?</h2>
+      <div class="section-line"></div>
+      <p>
+        Whether you need regular maintenance or a one-time project,
+        BRAZEN is ready to help. Get in touch to request service.
+      </p>
+      <a href="contact.html">Request Service</a>
+    </section>
+
+    <section class="contact-section">
+      <h2 class="section-title">Contact BRAZEN</h2>
+      <div class="section-line"></div>
+      <p><strong>Phone:</strong> <a href="tel:4059530302">405-953-0302</a></p>
+      <p><strong>Email:</strong>
+        <a href="mailto:brazenservices031@gmail.com">
+          brazenservices031@gmail.com
+        </a>
+      </p>
+      <p>Serving Moore, Oklahoma and surrounding communities.</p>
     </section>
   </main>
 
   <footer>
-    <strong>BRAZEN Property & Home Services</strong>
+    <p><strong>BRAZEN Property & Home Services</strong></p>
     <p>You Name the Mess, We Handle the Rest.</p>
-    <p>Moore, Oklahoma & Surrounding Areas</p>
-    <p>405-953-0302</p>
-    <p>&copy; <span id="year"></span> BRAZEN. All Rights Reserved.</p>
+    <p>© <span id="year"></span> BRAZEN. All Rights Reserved.</p>
   </footer>
 
   <script>
     const menuButton = document.getElementById("menuButton");
-    const navigationMenu = document.getElementById("navigationMenu");
+    const navLinks = document.getElementById("navLinks");
 
     menuButton.addEventListener("click", function () {
-      const isOpen = navigationMenu.classList.toggle("open");
-      menuButton.setAttribute("aria-expanded", isOpen);
-      menuButton.textContent = isOpen ? "×" : "☰";
-    });
-
-    document.addEventListener("click", function (event) {
-      if (!menuButton.contains(event.target) &&
-          !navigationMenu.contains(event.target)) {
-        navigationMenu.classList.remove("open");
-        menuButton.setAttribute("aria-expanded", "false");
-        menuButton.textContent = "☰";
-      }
+      navLinks.classList.toggle("active");
+      menuButton.setAttribute(
+        "aria-expanded",
+        navLinks.classList.contains("active")
+      );
     });
 
     document.getElementById("year").textContent =

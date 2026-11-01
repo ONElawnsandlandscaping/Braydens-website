@@ -6,7 +6,6 @@
   --blue-light: #123d68;
   --gold: #d6ad55;
   --white: #ffffff;
-  --light: #f4f6f9;
 }
 
 * {
@@ -25,8 +24,6 @@ body {
   color: var(--white);
   line-height: 1.6;
 }
-
-/* TOP NAVIGATION */
 
 .site-header {
   width: 100%;
@@ -50,17 +47,43 @@ body {
   text-decoration: none;
 }
 
+/* HAMBURGER MENU */
+
+.menu-toggle {
+  display: block;
+  background: none;
+  border: none;
+  color: var(--blue);
+  font-size: 32px;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
 .site-nav {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 250px;
+  padding: 12px 20px;
+  background: var(--white);
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+}
+
+.site-nav.active {
   display: flex;
-  align-items: center;
-  gap: 25px;
 }
 
 .site-nav a {
   color: var(--blue);
   text-decoration: none;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: bold;
+  padding: 13px 8px;
+  border-bottom: 1px solid #e5e5e5;
   transition: color 0.2s ease;
 }
 
@@ -68,16 +91,7 @@ body {
   color: #b68b32;
 }
 
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  color: var(--blue);
-  font-size: 30px;
-  cursor: pointer;
-}
-
-/* GENERAL SECTIONS */
+/* HERO */
 
 main {
   min-height: 70vh;
@@ -116,6 +130,25 @@ main {
   margin-bottom: 30px;
 }
 
+/* PAGE CONTENT */
+
+.page-content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 65px 6%;
+}
+
+.page-heading {
+  text-align: center;
+  margin-bottom: 55px;
+}
+
+.page-heading p:last-child {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
 .intro,
 .home-contact {
   padding: 75px 8%;
@@ -134,23 +167,6 @@ main {
 .home-contact p {
   max-width: 700px;
   margin: 0 auto 22px;
-}
-
-.page-content {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 65px 6%;
-}
-
-.page-heading {
-  text-align: center;
-  margin-bottom: 55px;
-}
-
-.page-heading p:last-child {
-  max-width: 700px;
-  margin: 0 auto;
 }
 
 /* BUTTONS */
@@ -182,11 +198,7 @@ main {
   margin-top: 12px;
 }
 
-.text-link:hover {
-  text-decoration: underline;
-}
-
-/* SERVICE CARDS */
+/* SERVICES */
 
 .service-grid {
   display: grid;
@@ -333,36 +345,23 @@ footer p {
   font-size: 14px;
 }
 
+.employee-link {
+  display: inline-block;
+  margin-top: 18px;
+  color: var(--gold);
+  font-size: 12px;
+  text-decoration: none;
+  opacity: 0.75;
+}
+
+.employee-link:hover {
+  text-decoration: underline;
+  opacity: 1;
+}
+
 /* MOBILE */
 
 @media (max-width: 850px) {
-  .menu-toggle {
-    display: block;
-  }
-
-  .site-nav {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    padding: 20px;
-    background: var(--white);
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-  }
-
-  .site-nav.active {
-    display: flex;
-  }
-
-  .site-nav a {
-    padding: 12px 8px;
-    border-bottom: 1px solid #e5e5e5;
-  }
-
   .service-grid,
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);

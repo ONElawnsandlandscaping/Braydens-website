@@ -3,7 +3,7 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
-  // MOBILE HAMBURGER MENU
+  // TOP-RIGHT HAMBURGER MENU
   const menuToggle = document.querySelector(".menu-toggle");
   const siteNav = document.querySelector(".site-nav");
 
@@ -12,16 +12,36 @@ document.addEventListener("DOMContentLoaded", function () {
       const isOpen = siteNav.classList.toggle("active");
 
       menuToggle.setAttribute("aria-expanded", isOpen);
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation" : "Open navigation"
+      );
+
       menuToggle.innerHTML = isOpen ? "&times;" : "&#9776;";
     });
 
-    // Close menu after selecting a link
+    // Close menu after choosing a page
     siteNav.querySelectorAll("a").forEach(function (link) {
       link.addEventListener("click", function () {
         siteNav.classList.remove("active");
+        menuToggle.classList.remove("active");
         menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation");
         menuToggle.innerHTML = "&#9776;";
       });
+    });
+
+    // Close menu when clicking outside it
+    document.addEventListener("click", function (event) {
+      if (
+        !siteNav.contains(event.target) &&
+        !menuToggle.contains(event.target)
+      ) {
+        siteNav.classList.remove("active");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation");
+        menuToggle.innerHTML = "&#9776;";
+      }
     });
   }
 
